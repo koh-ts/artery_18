@@ -16,7 +16,6 @@
 #include <omnetpp/cxmlelement.h>
 #include <vanetza/btp/ports.hpp>
 #include <cmath>
-#include "artery/application/VehicleDataProvider.h"
 #include <iostream>
 #include <typeinfo>
 
@@ -119,8 +118,6 @@ void RsuCaService::sendCam()
 
     CaObject obj(createMessage());
     emit(scSignalCamSent, &obj);
-
-    // std::cout << "Vehicle ID:" << typeid(VehicleDataProvider::getStationId("test")).name() << std::endl;
 
     using CamByteBuffer = convertible::byte_buffer_impl<asn1::Cam>;
     std::unique_ptr<geonet::DownPacket> payload { new geonet::DownPacket() };
